@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import { inter } from '@/app/ui/fonts';
+
 import Search from '@/app/ui/search';
+import { inter } from '@/app/ui/fonts';
 import {
   CustomersTableType,
   FormattedCustomersTable,
