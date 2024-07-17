@@ -7,18 +7,14 @@ import {
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { Button } from "./button";
-//import { useActionState } from "react";
-
+import { useActionState } from "react";
 import { authenticate } from "@/app/lib/actions";
-import { useFormState, useFormStatus } from "react-dom";
 
 export default function LoginForm() {
-  const [errorMessage, formAction] = useFormState(
+  const [errorMessage, formAction, isPending] = useActionState(
     authenticate,
     undefined
   );
-
-  const { pending } = useFormStatus()
 
   return (
     <form action={formAction} className="space-y-3">
@@ -67,7 +63,7 @@ export default function LoginForm() {
             </div>
           </div>
         </div>
-        <Button className="mt-4 w-full" aria-disabled={pending}>
+        <Button className="mt-4 w-full" aria-disabled={isPending}>
           Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
         </Button>
         <div
