@@ -1,5 +1,5 @@
 import type { NextAuthConfig } from 'next-auth';
- 
+import Credential from 'next-auth/providers/credentials'
 export const authConfig = {
   trustHost: true,
   pages: {
@@ -19,5 +19,5 @@ export const authConfig = {
     },
   },
   secret: process.env.AUTH_SECRET,
-  providers: [], // Add providers with an empty array for now
+  providers: [Credential], // Add providers with an empty array for now
 } satisfies NextAuthConfig;
